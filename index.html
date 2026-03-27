@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alish Khatiwada | CSIT Student & Aspiring Software Engineer</title>
+    <meta name="description" content="Portfolio of Alish Khatiwada — CSIT student, robotics competition winner, and aspiring software engineer from Nepal." />
+    <meta name="author" content="Alish Khatiwada" />
+    <meta property="og:title" content="Alish Khatiwada | Developer Portfolio" />
+    <meta property="og:description" content="CSIT student, robotics winner, and aspiring software engineer from Nepal." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    
+    <!-- Spline Viewer Web Component -->
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.7/build/spline-viewer.js"></script>
+    <style>
+      body, html {
+        margin: 0;
+        padding: 0;
+        background-color: #030014; /* Fallback deep space dark background */
+      }
+      spline-viewer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        pointer-events: none; /* So it doesn't block interactions */
+      }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Alish Khatiwada",
+      "jobTitle": "CSIT Student",
+      "email": "khatiwadaalish0@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bhaktapur",
+        "addressCountry": "Nepal"
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <!-- Fullscreen 3D Background -->
+    <spline-viewer url="https://prod.spline.design/wuNsVJ7PaNHnXkAW/scene.splinecode"></spline-viewer>
+    
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Script to remove Spline watermark from Shadow DOM -->
+    <script>
+      const removeWatermark = () => {
+        const splineViewer = document.querySelector('spline-viewer');
+        if (splineViewer && splineViewer.shadowRoot) {
+          const logo = splineViewer.shadowRoot.querySelector('#logo');
+          if (logo) {
+            logo.remove();
+            return true;
+          }
+        }
+        return false;
+      };
+
+      // Try repeatedly until the component is initialized and the logo is found
+      const intervalId = setInterval(() => {
+        if (removeWatermark()) {
+          clearInterval(intervalId);
+        }
+      }, 500);
+
+      // Stop trying after 10 seconds to avoid memory leaks
+      setTimeout(() => clearInterval(intervalId), 10000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,373 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 0 84% 51%;
+    /* #E81C1C - Iron Man Red */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 43 100% 50%;
+    /* #FFB81C - Gold/Yellow */
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 0 84% 51%;
+
+    --radius: 0rem;
+    /* Sharp edges for modern style */
+
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 0 84% 51%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 43 100% 50%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 0 84% 51%;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 0 84% 51%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 0 84% 51%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 0 84% 51%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Montserrat', 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold tracking-tighter;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  /* Smooth scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #000;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #E81C1C;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ff3333;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+  }
+
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-28 px-4 md:px-8;
+  }
+
+  /* Page-in animation for whole page load */
+  .page-enter {
+    animation: pageEnter 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Shimmer line sweep across elements */
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shimmer::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.04) 50%, transparent 100%);
+    transform: translateX(-100%);
+    animation: shimmerSweep 3s ease-in-out infinite;
+  }
+
+  /* Pulsing border glow */
+  .glow-border {
+    animation: glowPulse 2.5s ease-in-out infinite;
+  }
+
+  /* Floating effect */
+  .float {
+    animation: floatY 4s ease-in-out infinite;
+  }
+
+  /* Subtle pulse animation for stars */
+  .animate-pulse-subtle {
+    animation: pulseSoft 4s ease-in-out infinite;
+  }
+
+  /* Meteor animation */
+  .animate-meteor {
+    animation: meteor 5s linear infinite;
+  }
+
+  /* Gold glow effect */
+  .gold-glow {
+    box-shadow: 0 0 20px rgba(255, 184, 28, 0.6);
+  }
+
+  /* Red glow effect */
+  .red-glow {
+    box-shadow: 0 0 20px rgba(232, 28, 28, 0.6);
+  }
+
+  /* Combined Iron Man glow */
+  .iron-glow {
+    box-shadow: 0 0 20px rgba(232, 28, 28, 0.4), 0 0 40px rgba(255, 184, 28, 0.2);
+  }
+
+  /* Text reveal clip */
+  .clip-reveal {
+    animation: clipReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Hover scale effect */
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+
+  /* Star element styles */
+  .star {
+    @apply absolute rounded-full;
+    background: white;
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4);
+  }
+
+  /* Meteor element styles */
+  .meteor {
+    @apply absolute rounded-full;
+    box-shadow: 0 0 10px 5px rgba(255, 184, 28, 0.3);
+  }
+
+  /* Typing cursor effect */
+  .typing-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background-color: #FFB81C;
+    animation: blinkCursor 1s infinite;
+  }
+}
+
+/* ───────── keyframes ───────── */
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmerSweep {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  60% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes glowPulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0px 0px rgba(232, 28, 28, 0);
+  }
+
+  50% {
+    box-shadow: 0 0 16px 2px rgba(232, 28, 28, 0.35);
+  }
+}
+
+@keyframes floatY {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes clipReveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  to {
+    clip-path: inset(0 0% 0 0);
+  }
+}
+
+/* Marquee scroll (for skills or footer branding) */
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 20s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Soft pulse for subtle animations */
+@keyframes pulseSoft {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Meteor shooting animation */
+@keyframes meteor {
+  0% {
+    transform: rotate(215deg) translateX(0);
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(215deg) translateX(-500px);
+    opacity: 0;
+  }
+}
+
+/* Blinking cursor for typing effect */
+@keyframes blinkCursor {
+
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Text underline draw-in effect */
+.underline-draw {
+  position: relative;
+  display: inline-block;
+}
+
+.underline-draw::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #E81C1C;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.underline-draw:hover::after,
+.group:hover .underline-draw::after {
+  width: 100%;
+}
