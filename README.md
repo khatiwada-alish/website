@@ -2,14 +2,6 @@
 
 A modern, premium portfolio website showcasing projects, skills, and experience.
 
-## Features
-
-- **Responsive Design**: Optimized for all devices with smooth, adaptive layouts
-- **Premium Animations**: Smooth transitions and interactions powered by Framer Motion
-- **Dark Theme**: Modern dark color scheme with red and gold accents
-- **Fully Typed**: Built with TypeScript for type safety
-- **Component Library**: shadcn/ui components for consistent design
-- **Performance Optimized**: Fast load times and smooth performance
 
 ## Project Structure
 
@@ -59,7 +51,6 @@ npm install
 npm run dev
 ```
 
-The application will be available at `http://localhost:5173`
 
 ## Available Scripts
 
@@ -71,7 +62,6 @@ The application will be available at `http://localhost:5173`
 - `npm run test` - Run tests
 - `npm run test:watch` - Run tests in watch mode
 
-## Customization
 
 ### Colors
 
@@ -90,50 +80,9 @@ The project uses:
 - **Inter** - Body text
 - **JetBrains Mono** - Code/monospace
 
-### Components
 
-All shadc/ui components are located in `src/components/ui/` and can be customized in their respective files.
 
-## Deployment
-
-The project can be deployed on any static hosting service:
-
-### Vercel (Recommended)
-
-```bash
-npm install -g vercel
-vercel
 ```
 
-### Netlify
 
-```bash
-npm install -g netlify-cli
-netlify deploy
-```
 
-### Docker
-
-```dockerfile
-FROM node:18-alpine as builder
-WORKDIR /app
-COPY . .
-RUN npm install && npm run build
-
-FROM node:18-alpine
-WORKDIR /app
-COPY --from=builder /app/dist ./dist
-RUN npm install -g serve
-CMD ["serve", "-s", "dist"]
-```
-
-## License
-
-This project is open source and available under the MIT License.
-
-## Contact
-
-For inquiries, reach out via:
-- Email: khatiwadaalish0@gmail.com
-- GitHub: [github.com/khatiwada-alish](https://github.com/khatiwada-alish)
-- LinkedIn: [linkedin.com/in/alish-khatiwada](https://linkedin.com/in/alish-khatiwada)
