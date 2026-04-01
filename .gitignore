@@ -14,7 +14,9 @@ dist-ssr
 .env
 .env.*
 !.env.example
-
+tmpclaude-331a-cwd
+tmpclaude-e5c0-cwd
+*tmp*
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
