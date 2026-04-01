@@ -237,7 +237,7 @@ export default function Projects() {
                 className="group px-12 md:px-16 py-7 md:py-8 text-base md:text-lg font-black uppercase tracking-widest border-2 border-white/30 rounded-lg hover:bg-white hover:text-black transition-all duration-300 shadow-lg"
                 asChild
               >
-                <a href="https://github.com/alish" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/khatiwada-alish" target="_blank" rel="noopener noreferrer">
                   More on GitHub{" "}
                   <motion.span
                     className="ml-3 inline-block"

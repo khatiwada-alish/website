@@ -205,13 +205,13 @@
   .star {
     @apply absolute rounded-full;
     background: white;
-    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 8px 1px rgba(255, 255, 255, 0.3);
   }
 
   /* Meteor element styles */
   .meteor {
     @apply absolute rounded-full;
-    box-shadow: 0 0 10px 5px rgba(255, 184, 28, 0.3);
+    box-shadow: 0 0 8px 3px rgba(123, 211, 252, 0.2);
   }
 
   /* Typing cursor effect */
